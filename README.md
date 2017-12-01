@@ -4,7 +4,7 @@ A simple nodeJS script to filter coinmarketcap microcap coins using the [coinmar
 
 This tool is based on the methodology described in this medium article by [nik](https://medium.com/@daytradernik) :
 
-[Picking Out Microcaps 101 by Nik](https://medium.com/@daytradernik/picking-out-microcaps-101-2215a5782691)
+[Picking Out Microcaps 101](https://medium.com/@daytradernik/picking-out-microcaps-101-2215a5782691)
 
 ### Installation : 
 - Requires nodeJS and npm to be installed.
