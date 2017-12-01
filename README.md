@@ -7,12 +7,13 @@ This tool is based on the methodology outline in this medium article by nik :
 [Picking Out Microcaps 101 by Nik](https://medium.com/@daytradernik/picking-out-microcaps-101-2215a5782691)
 
 ### Installation : 
+- Requires nodeJS and npm to be installed.
 - clone the repo: `git clone https://github.com/jolleyjoe/marketcap-filter.git`
 - `cd marketcap-filter`
 - `npm install`
 
 ### Running the script :
-- `npm run filter [options]`
+- `node query.js [options]`
 
 ### Required options: 
 - `--maxmc` : The maximum market cap you wish to query in USD *(`--maxmc=250000000` recommended in article)*
@@ -29,5 +30,5 @@ This tool is based on the methodology outline in this medium article by nik :
   
   
 ### Sample usage: 
-- `npm run filter --maxmc=250000000 --mcvolratio=2 --maxprice=1 --supplyratio=200 --sort=price`
+- `node query.js --maxmc=250000000 --mcvolratio=2 --maxprice=1 --supplyratio=200 --sort=price`
 
