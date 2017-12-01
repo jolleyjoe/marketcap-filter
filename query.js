@@ -44,7 +44,7 @@ var supply_ratio = Number(argv.supplyratio);
 var makeRequest = function () {
   var request = new XMLHttpRequest();
   var results = [];
-  request.open('GET', 'https://api.coinmarketcap.com/v1/ticker/');
+  request.open('GET', 'https://api.coinmarketcap.com/v1/ticker/?limit=2000');
   request.send();
 
   request.onreadystatechange = function () {
