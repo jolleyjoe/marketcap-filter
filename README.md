@@ -18,6 +18,7 @@ This script is based on the methodology described in this medium article by [nik
 - `cd marketcap-filter`
 - `npm install`
 
+
 ### Running the script :
 - From project folder: `node query.js [options]`
 
@@ -37,4 +38,16 @@ This script is based on the methodology described in this medium article by [nik
   
 ### Sample usage: 
 - `node query.js --maxmc=250000 --volmcratio=2 --maxprice=1 --supplyratio=200 --sort=price`
+
+## OTHER
+
+#### Creating standalone programs
+*Disclaimer: This is the way I did it and not the only way!*
+- You can create a binary by using the [pkg](https://github.com/zeit/pkg) library.
+  - `npm install -g pkg`
+  - Run `pkg query.js` to create 3 x binaries, one for Linux, MacOS and Windows.
+  - Run `pkg --help` for options.
+- You can then execute the binary directly without invoking `node query.js`.
+
+There are other ways to create node command line utils. Great post [here](https://javascriptplayground.com/blog/2015/03/node-command-line-tool/)
 
