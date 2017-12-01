@@ -89,7 +89,11 @@ var handleResults = function (data) {
       return true;
     }
   });
-  makeTable(coins);
+  if (coins.length > 0) {
+    makeTable(coins);
+  } else {
+    console.error('No results found..');
+  }
 }
 
 var makeTable = function (coins) {
