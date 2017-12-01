@@ -17,7 +17,7 @@ This tool is based on the methodology described in this medium article by [nik](
 
 ### Required options: 
 - `--maxmc` : The maximum market cap you wish to query in USD *(`--maxmc=250000000` recommended in article)*
-- `--mcvolratio` : The ratio (%) of market cap to 24 hour volume *(`--mcvolratio=2` recommended in article)*
+- `--volmcratio` : The min ratio (%) of 24 hour volume to marketcap *(`--volmcratio=2` recommended in article)*
 - `--maxprice` : The maximum price in USD per coin
 - `--supplyratio` : The ratio (%) of total supply vs available supply *(e.g. `--supplyratio=200` would mean that you will filter coins where the total supply is greater than twice the available supply)*
 
@@ -30,5 +30,5 @@ This tool is based on the methodology described in this medium article by [nik](
   
   
 ### Sample usage: 
-- `node query.js --maxmc=250000000 --mcvolratio=2 --maxprice=1 --supplyratio=200 --sort=price`
+- `node query.js --maxmc=250000000 --volmcratio=2 --maxprice=1 --supplyratio=200 --sort=price`
 
