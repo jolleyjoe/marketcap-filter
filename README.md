@@ -1,10 +1,16 @@
 # marketcap-filter
 
-A simple nodeJS script to filter coinmarketcap microcap coins using the [coinmarketcap api](https://api.coinmarketcap.com/v1/ticker/).
+A simple nodeJS script to filter coinmarketcap microcap coins using the [coinmarketcap api](https://coinmarketcap.com/api/).
 
-This tool is based on the methodology described in this medium article by [nik](https://medium.com/@daytradernik) :
+This script is based on the methodology described in this medium article by [nik](https://medium.com/@daytradernik) :
 
 [Picking Out Microcaps 101](https://medium.com/@daytradernik/picking-out-microcaps-101-2215a5782691)
+
+---
+
+**Note**: Please respect coinmarketcap's API limit request of no more than 10 per minute.
+
+---
 
 ### Installation : 
 - Requires nodeJS and npm to be installed.
