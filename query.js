@@ -21,7 +21,7 @@ if (argv.maxprice == null) {
   console.error('Please provide a maximum price in USD: e.g --maxprice=1');
   return;
 }
-if (argv.maxsupplyratio == null) {
+if (argv.supplyratio == null) {
   console.error('Please provide a maximum supply ratio percentage (i.e. the ratio of total to available supply): e.g --supplyratio=200');
   return;
 }
@@ -37,7 +37,7 @@ var mc_to_vol_ratio = Number(argv.mcvolratio);
 //set max price
 var max_price_usd = Number(argv.maxprice);
 //set supply ratio
-var supply_ratio = Number(argv.maxsupplyratio);
+var supply_ratio = Number(argv.supplyratio);
 
 
 
