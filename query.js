@@ -1,8 +1,8 @@
 #! /usr/bin/env node
 
-XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
-_ = require('lodash');
-Table = require('easy-table');
+var XMLHttpRequest = require('xmlhttprequest').XMLHttpRequest;
+var _ = require('lodash');
+var Table = require('easy-table');
 
 var parseArgs = require('minimist');
 var argv = parseArgs(process.argv.slice(2));
@@ -94,6 +94,7 @@ var handleResults = function (data) {
   } else {
     console.error('No results found..');
   }
+
 }
 
 var makeTable = function (coins) {
