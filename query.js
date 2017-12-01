@@ -74,7 +74,7 @@ var handleResults = function (data) {
     var _24h_vol = Number(coin['24h_volume_usd']);
     var mc = Number(coin.market_cap_usd);
     var _mc_to_vol_ratio_perc = Number(mc / _24h_vol).toFixed(6) * 100;
-    if (_mc_to_vol_ratio_perc > 2) {
+    if (_mc_to_vol_ratio_perc > mc_to_vol_ratio) {
       return true;
     }
   });
