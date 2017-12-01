@@ -10,7 +10,7 @@ var argv = parseArgs(process.argv.slice(2));
 var sort = 'rank';
 
 if (argv.maxmc == null) {
-  console.error('Please provide a cutoff market cap in USD: e.g. --maxmc=250000000');
+  console.error('Please provide a cutoff market cap in USD: e.g. --maxmc=250000');
   return;
 }
 if (argv.volmcratio == null) {
