@@ -13,7 +13,7 @@ This tool is based on the methodology outline in this medium article by nik :
 - `npm install`
 
 ### Running the script :
-- `node query.js [options]`
+- From project folder: `node query.js [options]`
 
 ### Required options: 
 - `--maxmc` : The maximum market cap you wish to query in USD *(`--maxmc=250000000` recommended in article)*
