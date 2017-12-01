@@ -73,8 +73,9 @@ var handleResults = function (data) {
   coins = _.filter(coins, function (coin) {
     var _24h_vol = Number(coin['24h_volume_usd']);
     var mc = Number(coin.market_cap_usd);
-    var _mc_to_vol_ratio_perc = Number(_24h_vol/mc).toFixed(2) * 100;
-    if (_mc_to_vol_ratio_perc > vol_to_mc_ratio) {
+    var coin_vol_to_mc_ratio = Number(_24h_vol/mc).toFixed(2) * 100;
+    coin.vol_to_mc_ratio = coin_vol_to_mc_ratio;
+    if (coin_vol_to_mc_ratio > vol_to_mc_ratio) {
       return true;
     }
   });
@@ -130,11 +131,12 @@ var makeTable = function (coins) {
   var t = new Table;
 
   _.each(coins, function (coin) {
-    t.cell('name', coin.id);
-    t.cell('coinmarketcap rank', coin.rank);
-    t.cell('market cap', coin.market_cap_usd);
-    t.cell('price', "$" + coin.price_usd);
-    t.cell('supply ratio (%)', coin.supply_ratio);
+    t.cell('Name', coin.id);
+    t.cell('Coinmarketcap Rank', coin.rank);
+    t.cell('Price', "$" + coin.price_usd);
+    t.cell('Market Cap', "$" + coin.market_cap_usd);
+    t.cell('24hr vol/mc ratio', coin.vol_to_mc_ratio + "%");
+    t.cell('Total/Available Supply Ratio', coin.supply_ratio + "%");
     t.newRow();
   });
   console.log('');
