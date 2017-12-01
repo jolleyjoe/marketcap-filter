@@ -25,7 +25,7 @@ This script is based on the methodology described in this medium article by [nik
 - `--maxmc` : The maximum market cap you wish to query in USD *(`--maxmc=250000` recommended in article)*
 - `--volmcratio` : The min ratio (%) of 24 hour volume to marketcap *(`--volmcratio=2` recommended in article)*
 - `--maxprice` : The maximum price in USD per coin
-- `--supplyratio` : The ratio (%) of total supply vs available supply *(e.g. `--supplyratio=200` would mean that you will filter coins where the total supply is greater than twice the available supply)*
+- `--supplyratio` : The maximum ratio (%) of total supply vs available supply *(e.g. `--supplyratio=200` would mean that you will filter coins where the total supply is greater than twice the available supply)*
 
 ### Optional: 
 - `--sort` : Sort by one of the following *(If no --sort option is given, the default is 'rank')* : 
