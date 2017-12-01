@@ -13,8 +13,8 @@ if (argv.maxmc == null) {
   console.error('Please provide a cutoff market cap in USD: e.g. --maxmc=250000000');
   return;
 }
-if (argv.mcvolratio == null) {
-  console.error('Please provide a market cap to volume ratio percentage: e.g --mcvolratio=2');
+if (argv.volmcratio == null) {
+  console.error('Please provide a minimum 24hr volume to marketcap ratio percentage: e.g --volmcratio=2');
   return;
 }
 if (argv.maxprice == null) {
@@ -33,7 +33,7 @@ if (argv.sort == null) {
 
 var max_mc = Number(argv.maxmc)
 //set min mc_to_vol_ratio percentage
-var mc_to_vol_ratio = Number(argv.mcvolratio);
+var vol_to_mc_ratio = Number(argv.volmcratio);
 //set max price
 var max_price_usd = Number(argv.maxprice);
 //set supply ratio
@@ -73,8 +73,8 @@ var handleResults = function (data) {
   coins = _.filter(coins, function (coin) {
     var _24h_vol = Number(coin['24h_volume_usd']);
     var mc = Number(coin.market_cap_usd);
-    var _mc_to_vol_ratio_perc = Number(mc / _24h_vol).toFixed(6) * 100;
-    if (_mc_to_vol_ratio_perc > mc_to_vol_ratio) {
+    var _mc_to_vol_ratio_perc = Number(_24h_vol/mc).toFixed(2) * 100;
+    if (_mc_to_vol_ratio_perc > vol_to_mc_ratio) {
       return true;
     }
   });
