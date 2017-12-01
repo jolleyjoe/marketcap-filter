@@ -2,7 +2,7 @@
 
 A simple nodeJS script to filter coinmarketcap microcap coins using the [coinmarketcap api](https://api.coinmarketcap.com/v1/ticker/).
 
-This tool is based on the methodology outline in this medium article by nik :
+This tool is based on the methodology described in this medium article by [nik](https://medium.com/@daytradernik) :
 
 [Picking Out Microcaps 101 by Nik](https://medium.com/@daytradernik/picking-out-microcaps-101-2215a5782691)
 
