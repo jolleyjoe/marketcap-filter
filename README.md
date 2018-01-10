@@ -8,7 +8,7 @@ This script is based on the methodology described in this medium article by [nik
 
 ---
 
-**Note**: Please respect coinmarketcap's API limit request of no more than 10 per minute.
+**Note**: Please respect coinmarketcap's API limit request of no more than 10 per minute. This version also uses a direct 'maxsupply' filter instead of a 'supply ratio'.
 
 ---
 
@@ -26,18 +26,18 @@ This script is based on the methodology described in this medium article by [nik
 - `--maxmc` : The maximum market cap you wish to query in USD *(`--maxmc=250000` recommended in article)*
 - `--volmcratio` : The min ratio (%) of 24 hour volume to marketcap *(`--volmcratio=2` recommended in article)*
 - `--maxprice` : The maximum price in USD per coin
-- `--supplyratio` : The maximum ratio (%) of total supply vs available supply *(e.g. `--supplyratio=200` would mean that you will filter coins where the total supply is greater than twice the available supply)*
+- `--maxsupply` : The maximum available coin supply *(e.g. `--maxsupply=50000000` would mean that you will exclude coins with a greater available supply than the maxsupply given)*
 
 ### Optional: 
 - `--sort` : Sort by one of the following *(If no --sort option is given, the default is 'rank')* : 
   - `marketcap` : The total marketcap in USD
   - `price`: The price in USD
   - `rank`: The coinmarketcap ranking
-  - `supplyratio`: The ratio of total vs available coins
+  - `supply`: The ratio of total vs available coins
   
   
 ### Sample usage: 
-- `node query.js --maxmc=250000 --volmcratio=2 --maxprice=1 --supplyratio=200 --sort=price`
+- `node query.js --maxmc=250000 --volmcratio=2 --maxprice=1 --maxsupply=50000000 --sort=supply`
 
 ## OTHER
 
