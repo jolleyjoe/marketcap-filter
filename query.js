@@ -26,7 +26,7 @@ if (argv.maxsupply == null) {
   return;
 }
 if (argv.sort == null) {
-  console.error('No --sort flag passed. Available options are: "marketcap", "price", "rank", "supplyratio". The default is "rank" which orders by coinmarketcap ranking');
+  console.error('No --sort flag passed. Available options are: "marketcap", "price", "rank", "supply". The default is "rank" which orders by coinmarketcap ranking');
 } else {
   sort = String(argv.sort);
 }
@@ -61,6 +61,12 @@ makeRequest();
 var handleResults = function (data) {
   var coins;
 
+  //filter out coins where market cap is null
+  coins = _.filter(data, function(coin) {
+    if(coin.market_cap_usd != null && coin.market_cap_usd != undefined) {
+      return true;
+    }
+  });
 
   //filter out higher market cap coins
   coins = _.filter(data, function (coin) {
@@ -76,15 +82,14 @@ var handleResults = function (data) {
     var coin_vol_to_mc_ratio = Number(_24h_vol/mc).toFixed(2) * 100;
     coin.vol_to_mc_ratio = coin_vol_to_mc_ratio;
     if (coin_vol_to_mc_ratio > vol_to_mc_ratio) {
-      return true;
+        return true;
     }
   });
 
   //filter out remaining coins if total supply much greater than available supply
   coins = _.filter(coins, function (coin) {
-    var available_supply = Number(coin.available_supply);
-    var total_supply = Number(coin.total_supply);
-    if (max_supply <= available_supply) {
+    var supply = Number(coin.available_supply);
+    if (supply <= max_supply) {
       return true;
     }
   });
@@ -117,13 +122,13 @@ var makeTable = function (coins) {
     }
     ]);
   }
-  else if (sort == 'maxsupply') {
+  else if (sort == 'supply') {
     coins = _.sortBy(coins, [function (o) {
-      return Number(o.max_supply);
+      return Number(o.total_supply);
     }
     ]);
   } else {
-    console.error('Invalid --sort flag passed. Available options are: "marketcap", "price", "rank", "maxsupply". The default is "rank" which orders by coinmarketcap ranking, if no --sort option is given');
+    console.error('Invalid --sort flag passed. Available options are: "marketcap", "price", "rank", "supply". The default is "rank" which orders by coinmarketcap ranking, if no --sort option is given');
   }
 
   var t = new Table;
@@ -134,7 +139,7 @@ var makeTable = function (coins) {
     t.cell('Price', "$" + coin.price_usd);
     t.cell('Market Cap', "$" + coin.market_cap_usd);
     t.cell('24hr vol/mc ratio', coin.vol_to_mc_ratio + "%");
-    t.cell('Max Supply', coin.max_supply);
+    t.cell('Supply', coin.available_supply);
     t.newRow();
   });
   console.log('');
